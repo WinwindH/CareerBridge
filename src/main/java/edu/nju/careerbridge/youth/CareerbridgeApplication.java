@@ -1,4 +1,4 @@
-package edu.nju.careerbridge;
+package edu.nju.careerbridge.youth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
