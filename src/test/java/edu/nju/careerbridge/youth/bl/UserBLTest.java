@@ -42,14 +42,14 @@ public class UserBLTest {
 
 
 
-//    @Test
-//    public void getUserBasicMessage() throws Exception {
-//        System.out.println("【开始】");
-//
-//        System.out.println( userBLService.getUserBasicMessage("100"));
-//
-//        Assert.assertEquals("1","1");
-//    }
+    @Test
+    public void getUserBasicMessage() throws Exception {
+        System.out.println("【开始】");
+
+        System.out.println( userBLService.getUserBasicMessage("100"));
+
+        Assert.assertEquals("1","1");
+    }
 
 
 }
