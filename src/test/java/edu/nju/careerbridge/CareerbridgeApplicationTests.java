@@ -11,9 +11,4 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest(classes = CareerbridgeApplication.class)
 public class CareerbridgeApplicationTests {
 
-    @Test
-    public void test(){
-
-        assertEquals("hhh","h");
-    }
 }
