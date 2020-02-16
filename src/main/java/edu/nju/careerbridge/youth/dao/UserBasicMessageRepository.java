@@ -1,0 +1,20 @@
+package edu.nju.careerbridge.youth.dao;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
+import edu.nju.careerbridge.youth.model.UserBasicMessage;
+
+import javax.transaction.Transactional;
+
+
+public interface UserBasicMessageRepository extends JpaRepository<UserBasicMessage, Integer> {
+
+
+    @Transactional
+    void deleteByPhone(@Param("phone") String phone);
+
+    UserBasicMessage findByPhone(String phone);
+
+
+}
