@@ -7,8 +7,6 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import edu.nju.careerbridge.youth.bean.*;
-import edu.nju.careerbridge.youth.blservice.CompanyBLService;
 import edu.nju.careerbridge.youth.blservice.StatisticsBLService;
 
 import java.util.List;

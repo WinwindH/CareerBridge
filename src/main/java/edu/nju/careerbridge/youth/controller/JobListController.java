@@ -96,36 +96,5 @@ public class JobListController {
 }
 
 
-
-
-
-
-
-
-
-     /*
-    模糊搜索
-     */
-
-    @ApiOperation(value = "模糊搜索", notes = "可能状态码：0,1,9<br>登录成功返回签名")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "keyword", value = "关键词", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "page", value = "页码", required = true, dataType = "int"),
-            @ApiImplicitParam(name = "num", value = "条数", required = true, dataType = "String"),
-
-    })
-    @PostMapping("/fuzzySearch")
-    public edu.nju.careerbridge.util.Page<JobListBean> search(@RequestBody String param) {
-        JSONObject jo = new JSONObject();
-        Map<String, Object> m=(Map<String, Object> )jo.parse(param);
-
-        String keyword = (String) m.get("keyword");
-        int page = (Integer) m.get("page");
-        int num = (Integer) m.get("num");
-        return jobListBLService.search(keyword, page, num);
-
-    }
-
-
 }
 
