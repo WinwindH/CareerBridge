@@ -11,9 +11,6 @@ public class ScannedJob {
     @Id
     private int id;
 
-
-
-
     @Column(name = "phone")
     private String phone;
 
