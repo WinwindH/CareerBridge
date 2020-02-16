@@ -1,4 +1,5 @@
-import edu.nju.careerbridge.CareerbridgeApplication;
+package edu.nju.careerbridge;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
