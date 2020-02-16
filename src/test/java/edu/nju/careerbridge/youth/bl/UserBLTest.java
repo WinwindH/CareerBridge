@@ -1,5 +1,6 @@
 package edu.nju.careerbridge.youth.bl;
 
+import edu.nju.careerbridge.youth.CareerbridgeApplication;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +11,7 @@ import edu.nju.careerbridge.youth.bean.*;
 import edu.nju.careerbridge.youth.blservice.UserBLService;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = CareerbridgeApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserBLTest {
 
     @Autowired
