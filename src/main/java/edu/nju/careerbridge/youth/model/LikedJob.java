@@ -6,13 +6,13 @@ import javax.persistence.*;
 @Table(name = "job_like")
 public class LikedJob {
 
-@GeneratedValue(strategy= GenerationType.IDENTITY)
-@Column(name = "id")
-@Id
-private int id;
-
-
-
+    /**
+     * 喜欢的职位
+     */
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id")
+    @Id
+    private int id;
 
     @Column(name = "phone")
     private String phone;
