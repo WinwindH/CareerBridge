@@ -15,6 +15,7 @@ public class UserBL implements UserBLService {
     private UserRepository userRepository;
 
 
+
     @Autowired
     private UserBasicMessageRepository userBasicMessageRepository;
 
@@ -24,8 +25,8 @@ public class UserBL implements UserBLService {
 
         try {
             String realPassword= userRepository.findByPhone(phone).getPassword();
-            System.out.println(realPassword);
-            System.out.println(password);
+//            System.out.println(realPassword);
+//            System.out.println(password);
             if (realPassword.equals(password)) {
                 return new ResultMessageBean(true, "登陆成功");
 
