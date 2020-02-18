@@ -12,7 +12,15 @@ public class JobDescriptionOutput {
     private Integer wordId;
 
     private String jobId;
+
+    /**
+     * 公司形容词
+     */
     private String word;
+
+    /**
+     * 权重
+     */
     private Double weight;
 
 

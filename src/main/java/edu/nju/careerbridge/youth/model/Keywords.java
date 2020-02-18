@@ -11,7 +11,9 @@ public class Keywords {
     @Id
     private String keywords;
 
-
+    /**
+     * 分类
+     */
     @Column(name = "classification")
     private Integer classification;
 

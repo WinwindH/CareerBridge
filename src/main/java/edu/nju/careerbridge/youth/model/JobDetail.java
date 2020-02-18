@@ -15,47 +15,130 @@ public class JobDetail {
 
     @Column(name = "job_id")
     private String jobId;
+
+    /**
+     * 工作名称
+     */
     @Column(name = "job_name")
     private String jobName;
+
+    /**
+     * 工作地点
+     */
     @Column(name = "job_location")
     private String jobLocation;
+
+    /**
+     * 薪资
+     */
     @Column(name = "salary")
     private String salary;
+
+    /**
+     * 公司名字
+     */
     @Column(name = "company_name")
     private String companyName;
+
+    /**
+     * 公司性质
+     */
     @Column(name = "company_nature")
     private String companyNature;
+
+    /**
+     * 公司人口数量
+     */
     @Column(name = "company_people_num")
     private String companyPeopleNum;
+
+    /**
+     * 公司行业
+     */
     @Column(name = "companyIndustry")
     private String companyIndustry;
+
+    /**
+     * 工作经历
+     */
     @Column(name = "job_experience")
     private String jobExperience;
 
+    /**
+     * 教育水平
+     */
     @Column(name = "education_degree")
     private String educationDegree;
+
+    /**
+     * 工作所需人数
+     */
     @Column(name = "job_people_num")
     private String jobPeopleNum;
+
+    /**
+     * 工作时间
+     */
     @Column(name = "job_time")
     private String jobTime;
+
+    /**
+     * 福利
+     */
     @Column(name = "welfare")
     private String welfare;
+
+    /**
+     * 工作描述
+     */
     @Column(name = "job_description")
     private String jobDescription;
+
+    /**
+     * 公司描述
+     */
     @Column(name = "company_description")
     private String companyDescription;
+
+    /**
+     * 工作简介网址
+     */
     @Column(name = "job_description_html")
     private String jobDescriptionHtml;
+
+    /**
+     * 公司简介网址
+     */
     @Column(name = "company_description_html")
     private String companyDescriptionHtml;
+
+    /**
+     * 职位所在城市
+     */
     @Column(name = "job_city")
     private String jobCity;
+
+    /**
+     * 最低薪资
+     */
     @Column(name = "salary_low")
     private Integer salaryLow;
+
+    /**
+     * 最高薪资
+     */
     @Column(name = "salary_high")
     private Integer salaryHigh;
+
+    /**
+     * 公司人数
+     */
     @Column(name = "company_people_num_low")
     private Integer companyPeopleNumLow;
+
+    /**
+     * 公司最多人数
+     */
     @Column(name = "company_people_num_high")
     private Integer companyPeopleNumHigh;
 

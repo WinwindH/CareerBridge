@@ -9,24 +9,48 @@ public class JobVector {
     @Id
     @Column(name = "job_id")
     private Integer jobId;
+
+    /**
+     * 平均薪资
+     */
     @Column(name = "salary_mid")
     private Integer salaryMid;
+
+    /**
+     * 公司性质
+     */
     @Column(name = "company_nature")
     private Integer companyNature;
+
+    /**
+     * 教育水平
+     */
     @Column(name = "education_degree")
     private Integer educationDegree;
+
+    /**
+     * 教育经历
+     */
     @Column(name = "job_exp")
     private Double jobExp;
+
     @Column(name = "lng")
     private Double lng;
+
     @Column(name = "lat")
     private Double lat;
+
+    /**
+     * 城市
+     */
     @Column(name = "job_city")
     private String jobCity;
+
+    /**
+     * 名称
+     */
     @Column(name = "job_name")
     private String jobName;
-
-
 
     public JobVector(){
 

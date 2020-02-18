@@ -102,8 +102,7 @@ public class JobListBL implements JobListBLService {
             public Predicate toPredicate(Root<JobVector> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                 List<Predicate> list = new ArrayList<Predicate>();
                 List<Predicate> list2 = new ArrayList<Predicate>();
-               // System.out.println("我就在这里面啊，真没事");
-               // Path<>
+
                 Path<Integer> companyNature = root.get("companyNature");
                 Path<Integer> educationDegree = root.get("educationDegree");
                 Path<Double> jobExp = root.get("jobExp");

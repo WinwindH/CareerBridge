@@ -18,6 +18,9 @@ public class JobClassification {
     @Column(name = "job_name")
     private String jobName;
 
+    /**
+     * 分类
+     */
     @Column(name = "classification")
     private Integer classification;
 

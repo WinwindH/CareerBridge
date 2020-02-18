@@ -7,16 +7,22 @@ import javax.persistence.*;
 public class LikedJob {
 
     /**
-     * 喜欢的职位
+     * 收藏的职位
      */
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
     private int id;
 
+    /**
+     * 电话号码
+     */
     @Column(name = "phone")
     private String phone;
 
+    /**
+     * 喜欢的职位的id
+     */
     @Column(name = "job_id")
     private String jobId;
 
