@@ -9,12 +9,17 @@ import edu.nju.careerbridge.youth.dao.ScannedJobRepository;
 import edu.nju.careerbridge.youth.model.DisLikedJob;
 import edu.nju.careerbridge.youth.model.LikedJob;
 import edu.nju.careerbridge.youth.model.ScannedJob;
-
+/*
+* @author:MAX
+*/
 @Service
 public class JobBL implements JobBLService {
     private final LikedJobRepository likedJobRepository;
     private final DislikedJobRepository dislikedJobRepository;
     private final ScannedJobRepository scannedJobRepository;
+
+
+
 
     public JobBL(LikedJobRepository likedJobRepository, DislikedJobRepository dislikedJobRepository,
                  ScannedJobRepository scannedJobRepository){

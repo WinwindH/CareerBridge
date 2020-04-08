@@ -9,7 +9,6 @@ import javax.persistence.Table;
 @Table(name = "job_classification")
 public class JobClassification {
 
-
     @Column(name = "job_id")
     @Id
     private String jobId;
@@ -18,11 +17,19 @@ public class JobClassification {
     @Column(name = "job_name")
     private String jobName;
 
-    /**
-     * 分类
-     */
     @Column(name = "classification")
     private Integer classification;
+
+
+    public JobClassification(){
+
+    }
+
+    public JobClassification(String jobId, String jobName, Integer classification) {
+        this.jobId = jobId;
+        this.jobName = jobName;
+        this.classification = classification;
+    }
 
     public String getJobId() {
         return jobId;

@@ -11,17 +11,18 @@ public class DisLikedJob {
     @Id
     private int id;
 
-    /**
-     * 电话号码
-     */
+
+
+
     @Column(name = "phone")
     private String phone;
 
-    /**
-     * 不喜欢的工作的id
-     */
     @Column(name = "job_id")
     private String jobId;
+
+    public DisLikedJob(){
+
+    }
 
     public DisLikedJob(String phone, String jobId) {
         this.phone = phone;

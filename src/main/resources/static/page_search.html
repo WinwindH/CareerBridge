@@ -191,108 +191,108 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
 
 
-            <!-- 搜索 -->
+            <!-- 模糊搜索 -->
             <div class="col-md-6" style="top: 10px;left:-100px;">
                 <div class="input-group">
                     <input id="jobName" type="text" class="form-control" style="height:40px;width: 451px;"placeholder="职位名称">
                     <span class="input-group-btn" style="top:-30px;left:-10px;">
 						<button class="btn btn-default" onclick="fuzzySearchRequest(1)"  type="button" style="width:85px;height: 40px;line-height: 10px;border-top-right-radius: 5px;border-bottom-right-radius: 5px;">
-                            <p style="text-align: center;margin-left: -25px;margin-top: 0px;">搜索</p>
+                            <p style="text-align: center;margin-left: -25px;margin-top: 0px;">模糊搜索</p>
 						</button>
 					</span>
                 </div><!-- /input-group -->
-            </div>   <!-- 搜索结束 -->
+            </div>   <!-- 模糊搜索结束 -->
 
         </div>  <!-- 职位搜索title行结束 -->
 
 
         <!-- 全匹配搜索选项 -->
-        <!--<div class="signup-header wow fadeInUp" style="position: relative;margin-bottom: 10px; padding-bottom: 10px; top: -100px;width: 1130px;">-->
+        <div class="signup-header wow fadeInUp" style="position: relative;margin-bottom: 10px; padding-bottom: 10px; top: -100px;width: 1130px;">
 
-            <!--<h3 class="form-title text-center" style="position: relative;left: -480px;">全匹配搜索</h3>-->
+            <h3 class="form-title text-center" style="position: relative;left: -480px;">全匹配搜索</h3>
 
-            <!--<form class="form-header" role="form" style="padding-left: 10px;margin-top: -30px;" >-->
+            <form class="form-header" role="form" style="padding-left: 10px;margin-top: -30px;" >
 
-                <!--&lt;!&ndash; 月薪 &ndash;&gt;-->
-                <!--<div class="form-group row_style" >-->
+                <!-- 月薪 -->
+                <div class="form-group row_style" >
 
-                    <!--<label class="label_hp label_style">月薪范围</label>-->
-                    <!--<select  class="form-control select_style" id="salary" style = "height: 35px;font-family: '微软雅黑 Light';font-weight:300;font-size: 14px;color: grey;" required onchange="incomeSelected(this)">-->
-                        <!--<option value="5000"><5k</option>-->
-                        <!--<option value="10000">5k-10k</option>-->
-                        <!--<option value="15000">10k-15k</option>-->
-                        <!--<option value="20000">15k-20k</option>-->
-                        <!--<option value="30000">20k-30k</option>-->
-                        <!--<option value="50000">30k-50k</option>-->
-                        <!--<option value="100000">>50k</option>-->
-                    <!--</select>-->
+                    <label class="label_hp label_style">月薪范围</label>
+                    <select  class="form-control select_style" id="salary" style = "height: 35px;font-family: '微软雅黑 Light';font-weight:300;font-size: 14px;color: grey;" required onchange="incomeSelected(this)">
+                        <option value="5000"><5k</option>
+                        <option value="10000">5k-10k</option>
+                        <option value="15000">10k-15k</option>
+                        <option value="20000">15k-20k</option>
+                        <option value="30000">20k-30k</option>
+                        <option value="50000">30k-50k</option>
+                        <option value="100000">>50k</option>
+                    </select>
 
+                </div>
+
+
+                <!-- 公司性质 -->
+                <div class="form-group  row_style" style="margin-top: -58px;left: 360px;">
+                    <label class="label_hp label_style">公司性质</label>
+                    <select  class="form-control career-quality select_style" style = "height: 35px;font-family: '微软雅黑 Light';font-weight:300;font-size: 14px;color: grey;" id="jobQuality">
+                        <option value="国企">国企</option>
+                        <option value="合资">合资</option>
+                        <option value="外资（欧美）">外资（欧美）</option>
+                        <option value="外资（非欧美）">外资（非欧美）</option>
+                        <option value="事业单位">事业单位</option>
+                        <option value="上市公司">上市公司</option>
+                        <option value="民营公司">民营公司</option>
+                        <option value="创业公司">创业公司</option>
+                    </select>
+                </div>
+
+
+                <!-- 学历要求 -->
+                <div class="form-group row_style" style="margin-top: -58px;left:720px;" >
+                    <label class="label_hp label_style">学历要求</label>
+                    <select  class="form-control select_style" style = "height: 35px;font-family: '微软雅黑 Light';font-weight:300;font-size: 14px;color: grey;" id="eduRequire" >
+                        <option value="高中">高中及以下</option>
+                        <option value="大专">大专(含在读)</option>
+                        <option value="本科">本科(含在读)</option>
+                        <option value="硕士">硕士(含在读)</option>
+                        <option value="博士">博士(含在读)</option>
+                    </select>
+                </div>
+
+                <!-- 职业年限 -->
+                <div class="form-group row_style" style="margin-top: 20px;left: 0px;">
+                    <label class="label_hp label_style">职业年限</label>
+                    <select  class="form-control select_style" style = "height: 35px;font-family: '微软雅黑 Light';font-weight:300;font-size: 14px;color: grey;" id="workYear">
+                        <option value="无工作经验">应届及以上</option>
+                        <option value="1年经验">1年经验</option>
+                        <option value="2年经验">2年经验</option>
+                        <option value="3-4年经验">3-4年</option>
+                        <option value="5-7年经验">5-7年</option>
+                        <option value="10年以上经验">10年以上</option>
+                    </select>
+                </div>
+
+
+
+
+                <!-- 城市 -->
+                <div class="form-group row_style" style="margin-top: -40px;left:360px;">
+                    <label class="label_hp label_style" id="label_city" style="top:-8px;">工作城市</label>
+                </div>
+
+
+                <!--<div class="form-group last">-->
+                    <!--<div class="input-group">-->
+                       <!--<span class="input-group-btn" style="top: -35px;left: 975px;width: 100px;">-->
+						<!--<button class="btn btn-default allSearchButton" onclick="allMatchSearch(1)"  type="button" style="width:85px;height: 40px;background-color: white;border-width: 2px;border-style:  solid;border-color: #4582b4;line-height: 10px;border-radius: 5px;">-->
+                            <!--<p style="text-align: center;margin-left: -10px;margin-top:0px;color: #4583b5;">搜索</p>-->
+						<!--</button>-->
+					    <!--</span>-->
+                    <!--</div>&lt;!&ndash; /input-group &ndash;&gt;-->
                 <!--</div>-->
 
+            </form>
 
-                <!--&lt;!&ndash; 公司性质 &ndash;&gt;-->
-                <!--<div class="form-group  row_style" style="margin-top: -58px;left: 360px;">-->
-                    <!--<label class="label_hp label_style">公司性质</label>-->
-                    <!--<select  class="form-control career-quality select_style" style = "height: 35px;font-family: '微软雅黑 Light';font-weight:300;font-size: 14px;color: grey;" id="jobQuality">-->
-                        <!--<option value="国企">国企</option>-->
-                        <!--<option value="合资">合资</option>-->
-                        <!--<option value="外资（欧美）">外资（欧美）</option>-->
-                        <!--<option value="外资（非欧美）">外资（非欧美）</option>-->
-                        <!--<option value="事业单位">事业单位</option>-->
-                        <!--<option value="上市公司">上市公司</option>-->
-                        <!--<option value="民营公司">民营公司</option>-->
-                        <!--<option value="创业公司">创业公司</option>-->
-                    <!--</select>-->
-                <!--</div>-->
-
-
-                <!--&lt;!&ndash; 学历要求 &ndash;&gt;-->
-                <!--<div class="form-group row_style" style="margin-top: -58px;left:720px;" >-->
-                    <!--<label class="label_hp label_style">学历要求</label>-->
-                    <!--<select  class="form-control select_style" style = "height: 35px;font-family: '微软雅黑 Light';font-weight:300;font-size: 14px;color: grey;" id="eduRequire" >-->
-                        <!--<option value="高中">高中及以下</option>-->
-                        <!--<option value="大专">大专(含在读)</option>-->
-                        <!--<option value="本科">本科(含在读)</option>-->
-                        <!--<option value="硕士">硕士(含在读)</option>-->
-                        <!--<option value="博士">博士(含在读)</option>-->
-                    <!--</select>-->
-                <!--</div>-->
-
-                <!--&lt;!&ndash; 职业年限 &ndash;&gt;-->
-                <!--<div class="form-group row_style" style="margin-top: 20px;left: 0px;">-->
-                    <!--<label class="label_hp label_style">职业年限</label>-->
-                    <!--<select  class="form-control select_style" style = "height: 35px;font-family: '微软雅黑 Light';font-weight:300;font-size: 14px;color: grey;" id="workYear">-->
-                        <!--<option value="无工作经验">应届及以上</option>-->
-                        <!--<option value="1年经验">1年经验</option>-->
-                        <!--<option value="2年经验">2年经验</option>-->
-                        <!--<option value="3-4年经验">3-4年</option>-->
-                        <!--<option value="5-7年经验">5-7年</option>-->
-                        <!--<option value="10年以上经验">10年以上</option>-->
-                    <!--</select>-->
-                <!--</div>-->
-
-
-
-
-                <!--&lt;!&ndash; 城市 &ndash;&gt;-->
-                <!--<div class="form-group row_style" style="margin-top: -40px;left:360px;">-->
-                    <!--<label class="label_hp label_style" id="label_city" style="top:-8px;">工作城市</label>-->
-                <!--</div>-->
-
-
-                <!--&lt;!&ndash;<div class="form-group last">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="input-group">&ndash;&gt;-->
-                       <!--&lt;!&ndash;<span class="input-group-btn" style="top: -35px;left: 975px;width: 100px;">&ndash;&gt;-->
-						<!--&lt;!&ndash;<button class="btn btn-default allSearchButton" onclick="allMatchSearch(1)"  type="button" style="width:85px;height: 40px;background-color: white;border-width: 2px;border-style:  solid;border-color: #4582b4;line-height: 10px;border-radius: 5px;">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<p style="text-align: center;margin-left: -10px;margin-top:0px;color: #4583b5;">搜索</p>&ndash;&gt;-->
-						<!--&lt;!&ndash;</button>&ndash;&gt;-->
-					    <!--&lt;!&ndash;</span>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&lt;!&ndash; /input-group &ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-            <!--</form>-->
-
-        <!--</div>-->
+        </div>
 
 
 

@@ -2,7 +2,10 @@ package edu.nju.careerbridge.youth.dao;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import edu.nju.careerbridge.youth.bean.JobExperienceBean;
 import edu.nju.careerbridge.youth.model.JobExperience;
 
 
@@ -23,10 +26,10 @@ public interface JobExperienceRepository extends JpaRepository<JobExperience, In
 //    @Query(value = "DELETE from job_experience u WHERE u.phone =:ph ", nativeQuery = true)
 //    int cleanBeforeInfo(@Param("ph")String phone);
 
-//    @Transactional
-//    void deleteByPhone(@Param("phone") String phone);
+    @Transactional
+    void deleteByPhone(@Param("phone") String phone);
 
-//    List<JobExperience> findByPhone(String phone);
+    List<JobExperience> findByPhone(String phone);
 
 
 }

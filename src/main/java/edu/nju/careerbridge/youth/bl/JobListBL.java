@@ -2,11 +2,15 @@ package edu.nju.careerbridge.youth.bl;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import edu.nju.careerbridge.util.FirstLetterUtil;
+import edu.nju.careerbridge.util.LocationUtils;
 import edu.nju.careerbridge.youth.bean.JobListBean;
 import edu.nju.careerbridge.youth.bean.SearchBean;
 import edu.nju.careerbridge.youth.blservice.JobListBLService;
@@ -18,7 +22,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 @Service
 public class JobListBL implements JobListBLService {
@@ -102,7 +105,8 @@ public class JobListBL implements JobListBLService {
             public Predicate toPredicate(Root<JobVector> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                 List<Predicate> list = new ArrayList<Predicate>();
                 List<Predicate> list2 = new ArrayList<Predicate>();
-
+               // System.out.println("我就在这里面啊，真没事");
+               // Path<>
                 Path<Integer> companyNature = root.get("companyNature");
                 Path<Integer> educationDegree = root.get("educationDegree");
                 Path<Double> jobExp = root.get("jobExp");
@@ -133,7 +137,7 @@ public class JobListBL implements JobListBLService {
                 return cb.and(list.toArray(p));
             }
 
-        }, PageRequest.of( searchBean.getPage()-1,  searchBean.getNum()));
+        }, PageRequest.of(searchBean.getPage()-1, searchBean.getNum() ));
 
         List<JobListBean> jobListBeans=new ArrayList<JobListBean>();
 
@@ -181,7 +185,75 @@ public class JobListBL implements JobListBLService {
     }
 
 
+    /*
+    模糊搜索
+     */
+    @Override
+    public edu.nju.careerbridge.util.Page<JobListBean> search(String keyword, int page, int num) {
+        String jp= FirstLetterUtil.toJP(keyword);
+      //  int classification=0;
+        List<Keywords> keywordsList=keywordsRepository.findThroughKey(jp);
 
+        //System.out.println(keywordsList);
+
+//        Keywords keywords= keywordsRepository.findByKeywords(jp);
+//        if(keywords==null){
+//            classification=22;
+//        }else{
+//            classification=keywords.getClassification();
+//        }
+        final List<Integer> classificationList=new ArrayList<Integer>();
+
+        if(keywordsList.size()==0){
+            classificationList.add(new Integer(22));
+        }else{
+            for(Keywords keywords:keywordsList){
+                classificationList.add(keywords.getClassification());
+            }
+        }
+        System.out.println("【开始】"+classificationList.size());
+        edu.nju.careerbridge.util.Page<JobListBean> res = new edu.nju.careerbridge.util.Page<JobListBean>();
+        res.setSize(num);
+        res.setPage(page);
+
+        //final JobClassification jobClassification=new JobClassification();
+        //jobClassification.setClassification(classification);
+
+        org.springframework.data.domain.Page<JobClassification> result = null;
+
+        result  = jobClassificationRepository.findAll(new Specification<JobClassification>() {
+            @Override
+            public Predicate toPredicate(Root<JobClassification> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                List<Predicate> list = new ArrayList<Predicate>();
+                List<Predicate> list2 = new ArrayList<Predicate>();
+                Path<Integer> dbClassification= root.get("classification");
+                for(Integer myInteger:classificationList){
+                    list2.add(cb.equal(dbClassification, myInteger));
+                }
+                Predicate[] p2 = new Predicate[list2.size()];
+                list.add(cb.or(list2.toArray(p2)));
+
+                Predicate[] p = new Predicate[list.size()];
+                return cb.and(list.toArray(p));
+            }
+
+        },PageRequest.of( page-1, num ));
+        List<JobListBean> jobListBeans=new ArrayList<JobListBean>();
+
+        for (JobClassification jobClassification1 : result.getContent()) {
+            JobListBean jobListBean=new JobListBean();
+            BeanUtils.copyProperties(jobDetailRepository.findByJobId(jobClassification1.getJobId()),jobListBean);
+            jobListBeans.add(jobListBean);
+        }
+        res.setResult(jobListBeans);
+        res.setTotalCount((int)result.getTotalElements());
+
+        System.out.println("【开始】"+result.getTotalElements());
+
+        return res;
+
+
+    }
 
 
 //    @Transactional

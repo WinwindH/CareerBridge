@@ -9,9 +9,10 @@ import java.util.List;
 public interface JobListBLService {
 
 
-    List<JobListBean> getSavedJobList(String phone);
-    List<JobListBean> getRecomandJobList(String phone);
-    edu.nju.careerbridge.util.Page<JobListBean> searchJob(@RequestBody SearchBean searchBean);
+    public List<JobListBean> getSavedJobList(String phone);
+    public List<JobListBean> getRecomandJobList(String phone);
+    public edu.nju.careerbridge.util.Page<JobListBean> searchJob(@RequestBody SearchBean searchBean);
+    public edu.nju.careerbridge.util.Page<JobListBean> search(String keyword,int page,int num);
 
 }
 

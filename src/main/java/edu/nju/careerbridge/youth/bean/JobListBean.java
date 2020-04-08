@@ -1,8 +1,5 @@
 package edu.nju.careerbridge.youth.bean;
 
-/**
-* @note：职业列表信息
-*/
 public class JobListBean {
 
     private String jobId;

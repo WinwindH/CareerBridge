@@ -10,69 +10,18 @@ public class UserBasicMessage {
     @Id
     private Integer id;
 
-    /**
-     * 电话号码
-     */
     private String phone;
-
-    /**
-     * 真实姓名
-     */
     private String realName;
-
-    /**
-     * 生日
-     */
     private String birthday;
-
-    /**
-     * 性别
-     */
     private String gender;
-
-    /**
-     * 地址
-     */
     private String address;
-
-    /**
-     * 工作年份
-     */
     private Double jobYear;
-
-    /**
-     * 薪酬
-     */
     private String salary;
-
-    /**
-     * 最低薪酬
-     */
     private Integer lowSalary;
-
-    /**
-     * 最高薪酬
-     */
     private Integer highSalary;
-
-    /**
-     * 基本薪酬
-     */
     private Integer basicSalary;
-
-    /**
-     * 奖金
-     */
     private Integer bonus;
-
-    /**
-     * 佣金
-     */
     private Integer commission;
-
-    /**
-     * 股票购股权
-     */
     private Integer stockShareOption;
 
     public UserBasicMessage(){

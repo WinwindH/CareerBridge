@@ -10,29 +10,19 @@ public class User {
     @Id
     private Integer id;
 
-    /**
-     * 电话号码
-     */
+
     @Column(name = "phone")
     private String phone;
 
-    /**
-     * 邮箱
-     */
     @Column(name = "mail")
     private String mail;
 
-    /**
-     * 密码
-     */
     @Column(name = "password")
     private String password;
 
-    /**
-     * 姓名
-     */
     @Column(name = "name")
     private String name;
+
 
     public User(){
 
@@ -69,5 +59,7 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+
 
 }

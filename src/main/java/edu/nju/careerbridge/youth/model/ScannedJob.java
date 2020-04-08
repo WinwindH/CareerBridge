@@ -11,16 +11,12 @@ public class ScannedJob {
     @Id
     private int id;
 
-    /**
-     * 电话号码
-     */
+
+
+
     @Column(name = "phone")
     private String phone;
 
-
-    /**
-     * 浏览的职位的id
-     */
     @Column(name = "job_id")
     private String jobId;
 

@@ -6,14 +6,11 @@ import javax.persistence.*;
 @Table(name = "keywords")
 public class Keywords {
 
-
     @Column(name = "keywords")
     @Id
     private String keywords;
 
-    /**
-     * 分类
-     */
+
     @Column(name = "classification")
     private Integer classification;
 

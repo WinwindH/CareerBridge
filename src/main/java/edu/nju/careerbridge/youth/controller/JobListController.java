@@ -7,14 +7,21 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import edu.nju.careerbridge.youth.bean.JobListBean;
+import edu.nju.careerbridge.youth.bean.ResultMessageBean;
 import edu.nju.careerbridge.youth.bean.SearchBean;
+import edu.nju.careerbridge.youth.blservice.JobBLService;
 import edu.nju.careerbridge.youth.blservice.JobListBLService;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 import java.util.Map;
 
@@ -31,10 +38,10 @@ public class JobListController {
 
     }
 
-      /*
-    得到收藏职业列表
-     */
 
+    /*
+    得到收藏职业列表
+    */
     @ApiOperation(value = "得到收藏职业列表", notes = "可能状态码：0,1,9<br>登录成功返回签名")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "phone", value = "手机号", required = true, dataType = "String"),
@@ -50,6 +57,7 @@ public class JobListController {
 
        /*
     得到推荐职业列表
+    未实现
      */
 
     @ApiOperation(value = "得到推荐职业列表", notes = "可能状态码：0,1,9<br>登录成功返回签名")
@@ -86,6 +94,25 @@ public class JobListController {
                 (String) m.get("eduRequire"), Double.parseDouble((String) m.get("workYear")), (Integer) m.get("page"), (Integer) m.get("num"));
         return jobListBLService.searchJob(searchBean);
 }
+
+    @ApiOperation(value = "模糊搜索", notes = "可能状态码：0,1,9<br>登录成功返回签名")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "keyword", value = "关键词", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "page", value = "页码", required = true, dataType = "int"),
+            @ApiImplicitParam(name = "num", value = "条数", required = true, dataType = "String"),
+
+    })
+    @PostMapping("/fuzzySearch")
+    public edu.nju.careerbridge.util.Page<JobListBean> search(@RequestBody String param) {
+        JSONObject jo = new JSONObject();
+        Map<String, Object> m=(Map<String, Object> )jo.parse(param);
+
+        String keyword = (String) m.get("keyword");
+        int page = (Integer) m.get("page");
+        int num = (Integer) m.get("num");
+        return jobListBLService.search(keyword, page, num);
+
+    }
 
 
 }

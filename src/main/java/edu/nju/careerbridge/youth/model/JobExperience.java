@@ -2,7 +2,6 @@ package edu.nju.careerbridge.youth.model;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "job_experience")
 public class JobExperience {
@@ -11,45 +10,15 @@ public class JobExperience {
     @Id
     private Integer id;
 
-    /**
-     * 电话号码
-     */
     private String phone;
-
-    /**
-     * 公司名称
-     */
     private String companyName;
-
-    /**
-     * 公司质量
-     */
     private String companyQuality;
-
-    /**
-     * 公司水平
-     */
     private String companyLevel;
-
-    /**
-     * 职位名称
-     */
     private String job;
-
-    /**
-     * 起始时间
-     */
     private String fromTime;
-
-    /**
-     * 结束时间
-     */
     private String toTime;
-
-    /**
-     * 描述
-     */
     private String description;
+
 
     public JobExperience(){
 

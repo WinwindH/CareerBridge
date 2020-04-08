@@ -2,9 +2,16 @@ package edu.nju.careerbridge.youth.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
+import edu.nju.careerbridge.youth.model.Honor;
 import edu.nju.careerbridge.youth.model.JobDetail;
+import javax.transaction.Transactional;
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import edu.nju.careerbridge.youth.model.JobDetail;
+import edu.nju.careerbridge.youth.model.ProjectExperience;
+
 
 public interface JobDetailRepository extends JpaRepository<JobDetail, Integer> {
 

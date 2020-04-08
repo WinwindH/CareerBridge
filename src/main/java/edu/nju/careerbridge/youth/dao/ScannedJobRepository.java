@@ -5,5 +5,7 @@ import edu.nju.careerbridge.youth.model.ScannedJob;
 
 public interface ScannedJobRepository extends JpaRepository<ScannedJob, Integer> {
 
+
+
 }
 
