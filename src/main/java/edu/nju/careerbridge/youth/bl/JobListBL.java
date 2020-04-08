@@ -119,13 +119,13 @@ public class JobListBL implements JobListBLService {
                 if (searchBean.getEducationDegree() != null && !"".equals(searchBean.getEducationDegree())) {
                     list.add(cb.ge(educationDegree, jobVector.getEducationDegree() ));
                 }
-                if (searchBean.getJobExperience() != null && !"".equals(searchBean.getJobExperience())) {
+                if (searchBean.getJobExperience() != null ) {
                     list.add(cb.ge(jobExp, jobVector.getJobExp() ));
                 }
                 if (searchBean.getJobName() != null && !"".equals(searchBean.getJobName())) {
                     list.add(cb.like(jobName, "%" + searchBean.getJobName() + "%"));
                 }
-                if (searchBean.getJobCityList() != null && !"".equals(searchBean.getJobCityList())) {
+                if (searchBean.getJobCityList() != null) {
                     for(String s:searchBean.getJobCityList()){
                         list2.add(cb.equal(jobCity, s ));
                     }
