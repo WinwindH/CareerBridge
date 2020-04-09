@@ -276,12 +276,16 @@ public class LexCompiler {
 
 
     private void writeFile(){
+        FileReader fr=null;
+        BufferedReader reader=null;
+        FileOutputStream fw=null;
+        BufferedWriter writer=null;
         try{
-            FileReader fr=new FileReader("E:\\IdeaProjects\\compilingPractice\\src\\output\\codeScript1.txt");
-            BufferedReader reader=new BufferedReader(fr);
+            fr=new FileReader("E:\\IdeaProjects\\compilingPractice\\src\\output\\codeScript1.txt");
+            reader=new BufferedReader(fr);
             File out=new File("E:\\IdeaProjects\\compilingPractice\\src\\output\\out.java");
-            FileOutputStream fw=new FileOutputStream(out);
-            BufferedWriter writer=new BufferedWriter(new OutputStreamWriter(fw,"UTF-8"));
+            fw=new FileOutputStream(out);
+            writer=new BufferedWriter(new OutputStreamWriter(fw,"UTF-8"));
 
             for(char c:codeCopy){
                 writer.write(c);
@@ -375,13 +379,26 @@ public class LexCompiler {
             while(s!=null){
                 writer.write(s);
             }
-            writer.close();
         }catch(FileNotFoundException e){
             e.printStackTrace();
         }catch(UnsupportedEncodingException e){
             e.printStackTrace();
         }catch(IOException e){
             e.printStackTrace();
+        }
+        finally {
+            try {
+                if(fr!=null)
+                    fr.close();
+                if(reader!=null)
+                    reader.close();
+                if(fw!=null)
+                    fw.close();
+                if(writer!=null)
+                    writer.close();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -398,18 +415,29 @@ public class LexCompiler {
         String reName="";
         String reCode="";
         String reDes="";
+        FileInputStream fr=null;
+        BufferedReader reader=null;
         try{
-            FileInputStream fr=new FileInputStream(file);
-            BufferedReader reader=new BufferedReader(new InputStreamReader(fr,"UTF-8"));
+            fr=new FileInputStream(file);
+            reader=new BufferedReader(new InputStreamReader(fr,"UTF-8"));
             int in=reader.read();
             while(in!=-1){
                 char c=(char)(in);
                 content.add(c);
                 in=reader.read();
             }
-            reader.close();
+
         }catch (Exception e){
             System.out.println("not find file");
+        }finally {
+            try {
+                if(fr!=null)
+                    fr.close();
+                if(reader!=null)
+                    reader.close();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
         }
 
 
@@ -1163,18 +1191,29 @@ public class LexCompiler {
         chars=new ArrayList<Character>();
         forward=0;
         line=1;
+        FileInputStream fr=null;
+        BufferedReader reader=null;
         try{
-            FileInputStream fr=new FileInputStream(name);
-            BufferedReader reader=new BufferedReader(new InputStreamReader(fr,"UTF-8"));
+            fr=new FileInputStream(name);
+            reader=new BufferedReader(new InputStreamReader(fr,"UTF-8"));
             int in=reader.read();
             while(in!=-1){
                 char c=(char)(in);
                 chars.add(c);
                 in=reader.read();
             }
-            reader.close();
+
         }catch (Exception e){
             System.out.println("not find file");
+        }finally {
+            try {
+                if(fr!=null)
+                    fr.close();
+                if(reader!=null)
+                    reader.close();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
         }
 
         //System.out.println(chars.size());
@@ -1317,22 +1356,33 @@ public class LexCompiler {
 
     
     private void outpuFile(){
+        FileOutputStream fw=null;
+        OutputStreamWriter writer=null;
         try{
             File out=new File("output");
-            FileOutputStream fw=new FileOutputStream(out);
-            OutputStreamWriter writer=new OutputStreamWriter(fw,"UTF-8");
+            fw=new FileOutputStream(out);
+            writer=new OutputStreamWriter(fw,"UTF-8");
             for(int i=0;i<output.size();i++){
                 writer.append(output.get(i));
                 writer.append("\n");
             }
             writer.flush();
-            writer.close();
+
         }catch(FileNotFoundException e){
             e.printStackTrace();
         }catch(UnsupportedEncodingException e){
             e.printStackTrace();
         }catch(IOException e){
             e.printStackTrace();
+        }finally {
+            try {
+                if(fw!=null)
+                    fw.close();
+                if(writer!=null)
+                    writer.close();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
         }
 
     }
