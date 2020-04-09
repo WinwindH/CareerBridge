@@ -4,12 +4,12 @@ public class ResultMessageBean {
     /**
      * 操作结果：成功或失败
      */
-    public boolean result;
+    private boolean result;
 
     /**
      * 操作结果的提示信息
      */
-    public String message;
+    private String message;
 
     public ResultMessageBean(boolean result) {
         this.result = result;

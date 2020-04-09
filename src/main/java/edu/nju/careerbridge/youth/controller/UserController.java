@@ -348,13 +348,13 @@ public class UserController {
     }
 
 
-    @RequestMapping("/home")
+    @RequestMapping( path = "/home", method = {RequestMethod.GET})
     public String say(HttpServletResponse response) throws IOException {
         response.sendRedirect("/home.html");
         return "/home";
     }
 
-   @RequestMapping("/sign-in")
+   @RequestMapping(path = "/sign-in", method = {RequestMethod.GET})
     public String signin() {
        return "/page_signin.html";
    }

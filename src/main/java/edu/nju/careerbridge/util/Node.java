@@ -25,17 +25,17 @@ public class Node{
     /*左孩子*/
     private Node left;
     /*父节点*/
-    public Node parent;
+    private Node parent;
     /*节点所在树终止节点的位置*/
-    public int end;
+    private int end;
     /*如果这个节点代表的是epsilon，则这一属性为true*/
-    public boolean isNull;
+    private boolean isNull;
     /*是否是叶节点*/
-    public boolean isLeaf;
+    private boolean isLeaf;
     /*是否包含终态*/
-    public boolean isEnd;
+    private boolean isEnd;
     /*后序遍历的标记*/
-    public int tag;
+    private int tag;
 
     public Node(){
         first=new HashSet<Integer>();

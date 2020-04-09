@@ -6,12 +6,12 @@ public class Path {
     static Map<String,LinkedList<String>> undirectedGraph = new LinkedHashMap<>();
     static Map<String,Boolean> visited = new HashMap();
     static Iterator<Map.Entry<String,LinkedList<String>>> it;
-    public static int count;
-    public static String start;
-    public static int startInd;
-    public static String tag[];
-    public static int map[][];
-    public static int max;
+    private static int count;
+    private static String start;
+    private static int startInd;
+    private static String tag[];
+    private static int map[][];
+    private static int max;
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);

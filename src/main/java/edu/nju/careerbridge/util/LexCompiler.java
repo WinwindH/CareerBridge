@@ -1,14 +1,14 @@
 package edu.nju.careerbridge.util;
 
-import edu.nju.careerbridge.util.DFA;
-import edu.nju.careerbridge.util.Node;
-import edu.nju.careerbridge.util.NodeType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.*;
 
 public class LexCompiler {
 
+    private static final Logger log = LoggerFactory.getLogger(LexCompiler.class);
     private Map<Integer,Node> posToNode;
     private Set<Character> atom;
     private Map<String,String> re;
@@ -276,17 +276,11 @@ public class LexCompiler {
 
 
     private void writeFile(){
-        FileReader fr=null;
-        BufferedReader reader=null;
-        FileOutputStream fw=null;
-        BufferedWriter writer=null;
-        try{
-            fr=new FileReader("E:\\IdeaProjects\\compilingPractice\\src\\output\\codeScript1.txt");
-            reader=new BufferedReader(fr);
-            File out=new File("E:\\IdeaProjects\\compilingPractice\\src\\output\\out.java");
-            fw=new FileOutputStream(out);
-            writer=new BufferedWriter(new OutputStreamWriter(fw,"UTF-8"));
-
+        File out=new File("E:\\IdeaProjects\\compilingPractice\\src\\output\\out.java");
+        try(FileReader fr=new FileReader("E:\\IdeaProjects\\compilingPractice\\src\\output\\codeScript1.txt");
+                BufferedReader reader=new BufferedReader(fr);
+                FileOutputStream fw=new FileOutputStream(out);
+                BufferedWriter writer=new BufferedWriter(new OutputStreamWriter(fw,"UTF-8"))){
             for(char c:codeCopy){
                 writer.write(c);
             }
@@ -373,33 +367,32 @@ public class LexCompiler {
 
             writer.write("}");
 
-            fr=new FileReader("E:\\IdeaProjects\\compilingPractice\\src\\output\\codeScript2.txt");
-            reader=new BufferedReader(fr);
-            s=reader.readLine();
-            while(s!=null){
-                writer.write(s);
-            }
+
         }catch(FileNotFoundException e){
-            e.printStackTrace();
+            String message = "Unexpected NullPointerException in processing!";
+            log.error( message, e );
         }catch(UnsupportedEncodingException e){
-            e.printStackTrace();
+            String message = "Unexpected NullPointerException in processing!";
+            log.error( message, e );
         }catch(IOException e){
-            e.printStackTrace();
+            String message = "Unexpected NullPointerException in processing!";
+            log.error( message, e );
         }
-        finally {
-            try {
-                if(fr!=null)
-                    fr.close();
-                if(reader!=null)
-                    reader.close();
-                if(fw!=null)
-                    fw.close();
-                if(writer!=null)
-                    writer.close();
-            }catch(IOException e){
-                e.printStackTrace();
-            }
-        }
+//        finally {
+//            try {
+//                if(fr!=null)
+//                    fr.close();
+//                if(reader!=null)
+//                    reader.close();
+//                if(fw!=null)
+//                    fw.close();
+//                if(writer!=null)
+//                    writer.close();
+//            }catch(IOException e){
+//              String message = "Unexpected NullPointerException in processing!";
+//            log.error( message, e );
+//            }
+//        }
     }
 
 
@@ -436,7 +429,8 @@ public class LexCompiler {
                 if(reader!=null)
                     reader.close();
             }catch(IOException e){
-                e.printStackTrace();
+                String message = "Unexpected NullPointerException in processing!";
+                log.error( message, e );
             }
         }
 
@@ -657,8 +651,6 @@ public class LexCompiler {
         Node node=makeTree(input);
         REToTree.put(reName,node);
         DFA dfa=new DFA();
-        dfa.Dstates=new HashMap<String,Set<Integer>>();
-        dfa.Dtran=new HashMap<String,Map<Character,Set<Integer>>>();
 
         Stack<Node> nstack = new Stack<Node>();
         Node p = node;
@@ -1191,11 +1183,8 @@ public class LexCompiler {
         chars=new ArrayList<Character>();
         forward=0;
         line=1;
-        FileInputStream fr=null;
-        BufferedReader reader=null;
-        try{
-            fr=new FileInputStream(name);
-            reader=new BufferedReader(new InputStreamReader(fr,"UTF-8"));
+        try(FileInputStream fr=new FileInputStream(name);
+            BufferedReader reader=new BufferedReader(new InputStreamReader(fr,"UTF-8"))){
             int in=reader.read();
             while(in!=-1){
                 char c=(char)(in);
@@ -1205,15 +1194,6 @@ public class LexCompiler {
 
         }catch (Exception e){
             System.out.println("not find file");
-        }finally {
-            try {
-                if(fr!=null)
-                    fr.close();
-                if(reader!=null)
-                    reader.close();
-            }catch(IOException e){
-                e.printStackTrace();
-            }
         }
 
         //System.out.println(chars.size());
@@ -1356,12 +1336,11 @@ public class LexCompiler {
 
     
     private void outpuFile(){
-        FileOutputStream fw=null;
-        OutputStreamWriter writer=null;
-        try{
-            File out=new File("output");
-            fw=new FileOutputStream(out);
-            writer=new OutputStreamWriter(fw,"UTF-8");
+        File out=new File("output");
+        try (FileOutputStream fw=new FileOutputStream(out);
+             OutputStreamWriter writer=new OutputStreamWriter(fw,"UTF-8");
+        ){
+
             for(int i=0;i<output.size();i++){
                 writer.append(output.get(i));
                 writer.append("\n");
@@ -1369,20 +1348,14 @@ public class LexCompiler {
             writer.flush();
 
         }catch(FileNotFoundException e){
-            e.printStackTrace();
+            String message = "Unexpected NullPointerException in processing!";
+            log.error( message, e );
         }catch(UnsupportedEncodingException e){
-            e.printStackTrace();
+            String message = "Unexpected NullPointerException in processing!";
+            log.error( message, e );
         }catch(IOException e){
-            e.printStackTrace();
-        }finally {
-            try {
-                if(fw!=null)
-                    fw.close();
-                if(writer!=null)
-                    writer.close();
-            }catch(IOException e){
-                e.printStackTrace();
-            }
+            String message = "Unexpected NullPointerException in processing!";
+            log.error( message, e );
         }
 
     }

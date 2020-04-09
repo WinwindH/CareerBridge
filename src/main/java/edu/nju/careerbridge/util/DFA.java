@@ -10,16 +10,13 @@ import java.util.Set;
 
 public class  DFA{
     /*状态集*/
-    public Map<String,Set<Integer>> Dstates;
+    final static Map<String,Set<Integer>> Dstates = new HashMap<String,Set<Integer>>();
     /*状态转换：对应位置集*/
-    public Map<String,Map<Character,Set<Integer>>> Dtran;
+    final static Map<String,Map<Character,Set<Integer>>> Dtran = new HashMap<String,Map<Character,Set<Integer>>>();
     /*状态转换：对应状态*/
-    public Map<String,Map<Character,String>> UsableDtran;
+    final static Map<String,Map<Character,String>> UsableDtran=new HashMap<String,Map<Character,String>>();
 
     public DFA(){
-        Dstates=new HashMap<String,Set<Integer>>();
-        Dtran=new HashMap<String,Map<Character,Set<Integer>>>();
-        UsableDtran=new HashMap<String,Map<Character,String>>();
     }
 
     /**

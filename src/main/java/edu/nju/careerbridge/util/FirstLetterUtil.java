@@ -1,8 +1,12 @@
 package edu.nju.careerbridge.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.UnsupportedEncodingException;
 
 public class FirstLetterUtil {
+    private static final Logger log = LoggerFactory.getLogger(FirstLetterUtil.class);
     public static void main(String[] args) {
         String str = null;
         str = "大数据工程师ss6";
@@ -28,8 +32,8 @@ public class FirstLetterUtil {
         try {
             array = String.valueOf(c).getBytes("gbk");
         } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            String message = "Unexpected NullPointerException in processing!";
+            log.error( message, e );
         }
         if(array.length<2)return String.valueOf(c);
         int i = (short)(array[0] - '\0' + 256) * 256 + ((short)(array[1] - '\0' + 256));
